@@ -277,6 +277,24 @@ footer { border-top:1px solid var(--border); padding:56px 0 28px; }
 .footer-bottom { padding-top:20px; border-top:1px solid var(--border); text-align:center; }
 .footer-bottom p { font-size:0.75rem; color:var(--text-muted); }
 
+/* COMPARISON TABLE */
+.comparison-table-wrap { margin-top:64px; }
+.comparison-title { font-family:var(--font-display); font-size:1.4rem; font-weight:400; text-align:center; margin-bottom:32px; }
+.table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.comparison-table { width:100%; border-collapse:collapse; font-size:0.88rem; min-width:640px; }
+.comparison-table th, .comparison-table td { padding:14px 18px; text-align:center; border-bottom:1px solid var(--border); }
+.comparison-table th { font-size:0.95rem; font-weight:700; padding-bottom:18px; vertical-align:bottom; }
+.comparison-table th.feature-col, .comparison-table td:first-child { text-align:left; font-weight:500; color:var(--text); min-width:220px; }
+.table-price { display:block; font-family:var(--font-display); font-size:1.1rem; font-weight:400; color:var(--accent); margin-top:4px; }
+.featured-col { background:rgba(127,119,221,0.06); }
+body.dark .featured-col { background:rgba(255,255,255,0.05); }
+.comparison-table .section-row td { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); padding:20px 18px 10px; border-bottom:2px solid var(--border); background:none; }
+.comparison-table tbody td { color:var(--text-light); }
+.comparison-table tbody td:not(:first-child) { font-weight:600; }
+
+.btn-table { padding:10px 24px; font-size:0.82rem; }
+.comparison-table tfoot td { padding:24px 18px; border-bottom:none; }
+
 /* PLATFORM FEATURES */
 .platform-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .platform-feature { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); transition:all var(--transition); }
@@ -408,6 +426,8 @@ body.dark .mini-mockup { background:#252540; }
 @media(max-width:768px) {
     .problem-grid,.testimonial-grid,.pricing-grid,.roi-grid { grid-template-columns:1fr; max-width:480px; }
     .platform-grid { grid-template-columns:repeat(2,1fr); }
+    .comparison-table { font-size:0.82rem; }
+    .comparison-table th, .comparison-table td { padding:10px 12px; }
     .results-grid,.industry-grid { grid-template-columns:repeat(2,1fr); }
     .footer-grid { grid-template-columns:1fr 1fr; gap:28px; }
     .form-row { grid-template-columns:1fr; }
