@@ -2,18 +2,39 @@
 
 var themeToggle = document.getElementById("theme-toggle");
 var savedTheme = localStorage.getItem("parvis-theme");
+var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-if (savedTheme === "dark") {
-    document.body.classList.add("dark");
-    if (themeToggle) themeToggle.querySelector(".toggle-icon").textContent = "🌙";
+function applyTheme(isDark) {
+    if (isDark) {
+        document.body.classList.add("dark");
+        if (themeToggle) themeToggle.querySelector(".toggle-icon").textContent = "🌙";
+    } else {
+        document.body.classList.remove("dark");
+        if (themeToggle) themeToggle.querySelector(".toggle-icon").textContent = "☀️";
+    }
 }
 
+// On load: use saved preference, otherwise follow device setting
+if (savedTheme) {
+    applyTheme(savedTheme === "dark");
+} else {
+    applyTheme(systemDark.matches);
+}
+
+// Listen for device theme changes (e.g. sunrise/sunset auto switch)
+systemDark.addEventListener("change", function (e) {
+    // Only follow system if user hasn't manually chosen
+    if (!localStorage.getItem("parvis-theme")) {
+        applyTheme(e.matches);
+    }
+});
+
+// Manual toggle
 if (themeToggle) {
     themeToggle.addEventListener("click", function () {
-        document.body.classList.toggle("dark");
-        var isDark = document.body.classList.contains("dark");
+        var isDark = !document.body.classList.contains("dark");
+        applyTheme(isDark);
         localStorage.setItem("parvis-theme", isDark ? "dark" : "light");
-        themeToggle.querySelector(".toggle-icon").textContent = isDark ? "🌙" : "☀️";
     });
 }
 
