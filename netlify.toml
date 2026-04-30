@@ -1,0 +1,33 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA-style fallback isn't needed (Astro emits real HTML files), but a
+# trailing-slash normalize helps consistency with /services/index.html etc.
+[[redirects]]
+  from = "/services.html"
+  to   = "/services"
+  status = 301
+
+[[redirects]]
+  from = "/pricing.html"
+  to   = "/pricing"
+  status = 301
+
+[[redirects]]
+  from = "/contact.html"
+  to   = "/contact"
+  status = 301
+
+[[redirects]]
+  from = "/education.html"
+  to   = "/education"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to   = "/"
+  status = 301
