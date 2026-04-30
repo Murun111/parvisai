@@ -1,0 +1,784 @@
+---
+import Base from '../layouts/Base.astro';
+import GlassCard from '../components/GlassCard.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Icon from '../components/Icon.astro';
+import PhoneMockup from '../components/PhoneMockup.astro';
+
+const industries = [
+  { icon: 'tooth', label: 'Dentists' },
+  { icon: 'scissors', label: 'Salons & Spas' },
+  { icon: 'wrench', label: 'HVAC & Plumbing' },
+  { icon: 'car', label: 'Auto Repair' },
+  { icon: 'gavel', label: 'Law Firms' },
+  { icon: 'home', label: 'Real Estate' },
+  { icon: 'dumbbell', label: 'Fitness Studios' },
+  { icon: 'spa', label: 'Med Spas' },
+  { icon: 'restaurant', label: 'Restaurants' },
+  { icon: 'hammer', label: 'Contractors' },
+  { icon: 'paw', label: 'Veterinarians' },
+  { icon: 'camera', label: 'Photographers' },
+];
+
+const heroBubbles = [
+  { side: 'in' as const, sender: 'Missed call · (847) 555-0123', text: '', time: '2:34 PM' },
+  { side: 'out' as const, text: "Hey! Sorry we missed your call. This is Glenview Family Dental. How can we help you today?", time: '2:34 PM' },
+  { side: 'in' as const, text: 'Hi! I need to book a cleaning. Do you have any openings this week?', time: '2:35 PM' },
+  { side: 'out' as const, text: 'Absolutely! Thursday at 10am or Friday at 2pm. Which works?', time: '2:36 PM' },
+];
+---
+
+<Base title="Parvis AI — The AI Employee Built for Local Business" active="home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="backdrop-blob navy" style="width:520px;height:520px;top:-120px;right:-120px;"></div>
+      <div class="backdrop-blob cream" style="width:420px;height:420px;bottom:-160px;left:-100px;"></div>
+      <div class="backdrop-word" style="bottom:-120px;left:-50px;">PARVIS</div>
+    </div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-text" data-reveal>
+          <span class="meta">001 &mdash; Local business AI</span>
+          <h1 class="display hero-display">
+            Stop losing<br/>
+            <em>customers</em><br/>
+            to voicemail.
+          </h1>
+          <p class="lead hero-lead">
+            An AI employee that answers every call, follows up with every lead, and asks every happy customer for a review. Live in 7 days.
+          </p>
+          <div class="hero-cta">
+            <a href="/contact" class="btn btn-primary transition-link">See it in action</a>
+            <a href="/services" class="btn btn-ghost transition-link">How it works <Icon name="arrow-right" size={16} /></a>
+          </div>
+          <ul class="hero-proof">
+            <li>62% of missed calls never call back</li>
+            <li>Setup in 7 days</li>
+            <li>No tech skills required</li>
+          </ul>
+        </div>
+        <div class="hero-visual" data-reveal>
+          <GlassCard size="lg" padding="32px">
+            <div class="hero-card-eyebrow">
+              <span class="status-dot"></span>
+              <span>Live conversation</span>
+            </div>
+            <PhoneMockup business="Glenview Family Dental" bubbles={heroBubbles} />
+          </GlassCard>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATOR -->
+  <section class="section differentiator">
+    <div class="diff-backdrop" aria-hidden="true">
+      <div class="backdrop-blob navy" style="width:480px;height:480px;top:50%;right:-180px;transform:translateY(-50%);"></div>
+    </div>
+    <div class="container">
+      <div class="diff-grid">
+        <div class="diff-text" data-reveal>
+          <Eyebrow>What Makes Us Different</Eyebrow>
+          <h2 class="h2">One system. The entire <em>customer journey</em>.</h2>
+          <p class="diff-body">
+            Most AI tools for small businesses do one thing. They send a text when you miss a call, or they ask for a review, or they run a chatbot. They solve one problem and leave everything else to you &mdash; which means you're still juggling 5 different tools, still missing leads, still chasing payments.
+          </p>
+          <p class="diff-body">
+            Parvis AI is different. We build one connected system that handles the entire customer journey &mdash; from the first call to re-engaging them a year later. It's not a tool you manage. It's an employee that works for you.
+          </p>
+        </div>
+        <div class="diff-cards">
+          <GlassCard size="md" hover={true} class="diff-card" data-reveal>
+            <div class="diff-card-label">Other AI Tools</div>
+            <ul class="diff-list bad">
+              <li>One feature at a time</li>
+              <li>You manage the tool</li>
+              <li>5 different platforms</li>
+              <li>Leads still slip through</li>
+              <li>Generic, not customized</li>
+            </ul>
+          </GlassCard>
+          <GlassCard size="md" hover={true} class="diff-card diff-card--brand" data-reveal>
+            <div class="diff-card-label brand">Parvis AI</div>
+            <ul class="diff-list good">
+              <li>Full customer journey</li>
+              <li>It works for you</li>
+              <li>One connected system</li>
+              <li>Zero leads missed</li>
+              <li>Trained on your business</li>
+            </ul>
+          </GlassCard>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="section section--paper problem">
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow>The Problem</Eyebrow>
+        <h2 class="h2">Every day, local businesses lose money <em>without realizing it</em>.</h2>
+      </div>
+      <div class="problem-grid">
+        <GlassCard size="md" hover={true} class="problem-card" data-reveal>
+          <div class="problem-icon"><Icon name="phone-missed" size={26} /></div>
+          <h3 class="h3">Missed Calls = Lost Revenue</h3>
+          <p>A customer calls while you're with another client. They don't leave a voicemail. They call your competitor instead. You never even know it happened.</p>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="problem-card" data-reveal>
+          <div class="problem-icon"><Icon name="message" size={26} /></div>
+          <h3 class="h3">Leads Go Cold</h3>
+          <p>Someone fills out your form or sends a message. You're busy and forget to follow up for 2 days. By then, they've already booked with someone else.</p>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="problem-card" data-reveal>
+          <div class="problem-icon"><Icon name="wallet" size={26} /></div>
+          <h3 class="h3">Chasing Payments</h3>
+          <p>Invoices go unpaid for weeks. You're spending time chasing money instead of serving customers. Your cash flow suffers.</p>
+        </GlassCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section class="section solution">
+    <div class="solution-bg" aria-hidden="true">
+      <div class="backdrop-word" style="top:-40px;right:-100px;font-size:clamp(8rem,18vw,16rem);">SOLUTIONS</div>
+    </div>
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow>Your AI Employee</Eyebrow>
+        <h2 class="h2">One system that handles <em>everything</em>.</h2>
+        <p class="lead">Every system we build is trained specifically on your business. It knows your services, your pricing, your tone, and your customers.</p>
+      </div>
+      <div class="solution-grid">
+        <GlassCard size="md" hover={true} class="solution-card" data-reveal>
+          <div class="solution-num">01</div>
+          <span class="solution-tag">AI Voice Receptionist</span>
+          <h3 class="h3">Every call answered. <em>Every time.</em></h3>
+          <p>Your AI employee answers calls 24/7, handles inquiries, books appointments, and sends follow-up texts &mdash; all in your business's voice and tone.</p>
+          <div class="solution-result"><Icon name="arrow-up" size={14} /> Recover up to 40% of missed call leads</div>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="solution-card" data-reveal>
+          <div class="solution-num">02</div>
+          <span class="solution-tag">Lead Nurture + Follow-Up</span>
+          <h3 class="h3">Every lead followed up. <em>Every single one.</em></h3>
+          <p>Instant text, follow-up email, day-3 check-in. The sequence runs until they book or reply. No lead falls through the cracks, ever.</p>
+          <div class="solution-result"><Icon name="arrow-up" size={14} /> 3-5x more booked appointments</div>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="solution-card" data-reveal>
+          <div class="solution-num">03</div>
+          <span class="solution-tag">Invoicing + Payment Follow-Up</span>
+          <h3 class="h3">Get paid faster <em>without chasing</em>.</h3>
+          <p>Automatic invoice sending, payment reminders, and follow-ups. Your customers pay on time and you stop losing revenue to forgotten invoices.</p>
+          <div class="solution-result"><Icon name="arrow-up" size={14} /> 2x faster invoice payments</div>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="solution-card" data-reveal>
+          <div class="solution-num">04</div>
+          <span class="solution-tag">Reputation Management</span>
+          <h3 class="h3">5-star reviews <em>on autopilot</em>.</h3>
+          <p>After every appointment, your customer gets a friendly text with a direct link to leave a Google review. A steady stream of real reviews building your reputation.</p>
+          <div class="solution-result"><Icon name="arrow-up" size={14} /> 3x more Google reviews per month</div>
+        </GlassCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section--inverse how">
+    <div class="how-bg" aria-hidden="true">
+      <div class="backdrop-blob" style="background:radial-gradient(circle,rgba(138,161,220,0.4) 0%,transparent 70%);width:600px;height:600px;top:-200px;left:50%;transform:translateX(-50%);opacity:0.5;"></div>
+    </div>
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow light>How It Works</Eyebrow>
+        <h2 class="h2">Live within 7 days. <em>No tech skills needed.</em></h2>
+      </div>
+      <div class="how-steps">
+        <div class="how-step" data-reveal>
+          <div class="how-num">01</div>
+          <h3 class="h3">Free Demo</h3>
+          <p>Book a free 15-minute demo and we'll show you exactly what your Parvis AI employee would look like for your business.</p>
+        </div>
+        <div class="how-step" data-reveal>
+          <div class="how-num">02</div>
+          <h3 class="h3">We Build Your AI Employee</h3>
+          <p>We train it on your services, pricing, tone, and customers. It's customized to your business from day one.</p>
+        </div>
+        <div class="how-step" data-reveal>
+          <div class="how-num">03</div>
+          <h3 class="h3">Go Live</h3>
+          <p>Your AI employee starts working within 7 days. Calls answered, leads followed up, invoices sent, reviews requested.</p>
+        </div>
+        <div class="how-step" data-reveal>
+          <div class="how-num">04</div>
+          <h3 class="h3">Watch It Get Smarter</h3>
+          <p>It remembers every person it talks to, follows your rules, and gets smarter the longer it works for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="section industries">
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow>Who It's For</Eyebrow>
+        <h2 class="h2">Any local business that depends on customer communication <em>to grow</em>.</h2>
+      </div>
+      <div class="industry-grid">
+        {industries.map((ind) => (
+          <GlassCard size="sm" hover={true} class="industry-item" data-reveal>
+            <Icon name={ind.icon} size={22} />
+            <span>{ind.label}</span>
+          </GlassCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="section section--inverse results">
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow light>Results</Eyebrow>
+        <h2 class="h2">Most clients see results within <em>the first 7 days</em>.</h2>
+      </div>
+      <div class="results-grid">
+        <div class="result-cell" data-reveal>
+          <div class="result-number">40%</div>
+          <p>of missed calls recovered and converted into conversations</p>
+        </div>
+        <div class="result-cell" data-reveal>
+          <div class="result-number">3-5x</div>
+          <p>more appointments booked through automated follow-ups</p>
+        </div>
+        <div class="result-cell" data-reveal>
+          <div class="result-number">300%</div>
+          <p>increase in monthly Google reviews on average</p>
+        </div>
+        <div class="result-cell" data-reveal>
+          <div class="result-number">2x</div>
+          <p>faster invoice payments with automated reminders</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--paper testimonials">
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow>Testimonials</Eyebrow>
+        <h2 class="h2">Business owners <em>love the results</em>.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <GlassCard size="md" hover={true} class="testimonial" data-reveal>
+          <div class="stars" aria-label="5 out of 5 stars">
+            <Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} />
+          </div>
+          <p class="quote">"We were missing 15-20 calls a week without knowing it. Now every single one gets answered or texted back instantly. We've booked 12 extra appointments this month alone."</p>
+          <div class="quote-author">
+            <div class="avatar">RK</div>
+            <div>
+              <strong>Dr. Rachel K.</strong>
+              <span>Glenview Family Dental</span>
+            </div>
+          </div>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="testimonial" data-reveal>
+          <div class="stars" aria-label="5 out of 5 stars">
+            <Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} />
+          </div>
+          <p class="quote">"I went from 18 Google reviews to 67 in two months. Invoices get paid faster too. It's like having a full-time employee I never have to manage."</p>
+          <div class="quote-author">
+            <div class="avatar">ML</div>
+            <div>
+              <strong>Mike L.</strong>
+              <span>Precision Auto Care</span>
+            </div>
+          </div>
+        </GlassCard>
+        <GlassCard size="md" hover={true} class="testimonial" data-reveal>
+          <div class="stars" aria-label="5 out of 5 stars">
+            <Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} /><Icon name="star" size={14} />
+          </div>
+          <p class="quote">"The follow-up sequences are a game changer. I used to lose leads because I was too busy cutting hair to text people back. Now it happens automatically."</p>
+          <div class="quote-author">
+            <div class="avatar">TS</div>
+            <div>
+              <strong>Tony S.</strong>
+              <span>Sharp Edge Barbershop</span>
+            </div>
+          </div>
+        </GlassCard>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO PREVIEW -->
+  <section class="section demo">
+    <div class="container">
+      <div class="demo-grid">
+        <div class="demo-text" data-reveal>
+          <Eyebrow>See It Live</Eyebrow>
+          <h2 class="h2">Your AI employee <em>in action</em>.</h2>
+          <p class="lead">Here's what happens when a customer calls your business and you can't answer:</p>
+          <ol class="demo-steps">
+            <li><strong>Customer calls</strong> &mdash; your AI employee answers instantly.</li>
+            <li><strong>It handles the inquiry</strong> &mdash; knows your services, pricing, and availability.</li>
+            <li><strong>Books the appointment</strong> &mdash; sends confirmation to you and the customer.</li>
+            <li><strong>Follows up automatically</strong> &mdash; reminders, reviews, re-engagement.</li>
+          </ol>
+          <a href="/contact" class="btn btn-primary transition-link">Book a Free 15-Min Demo</a>
+        </div>
+        <div class="demo-visual" data-reveal>
+          <PhoneMockup business="Glenview Family Dental" bubbles={heroBubbles} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta">
+    <div class="cta-bg" aria-hidden="true">
+      <div class="backdrop-blob navy" style="width:520px;height:520px;top:-200px;left:50%;transform:translateX(-50%);opacity:0.4;"></div>
+    </div>
+    <div class="container">
+      <GlassCard size="lg" class="cta-card" data-reveal>
+        <h2 class="h2">Ready to stop losing leads <em>to voicemail?</em></h2>
+        <p class="lead">Book a free 15-minute demo and we'll show you exactly what your Parvis AI employee would look like for your business &mdash; no obligation, no hard sell. Most clients are live within 7 days.</p>
+        <a href="/contact" class="btn btn-primary btn-lg transition-link">Book a Free Demo</a>
+        <div class="cta-trust">
+          <span><Icon name="check" size={14} /> No contracts</span>
+          <span><Icon name="check" size={14} /> Live in 7 days</span>
+          <span><Icon name="check" size={14} /> Cancel anytime</span>
+        </div>
+      </GlassCard>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* ===== HERO ===== */
+  .hero {
+    padding: clamp(9rem, 18vw, 14rem) 0 clamp(5rem, 10vw, 8rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+  }
+  .hero-display {
+    font-size: var(--fs-mega);
+    line-height: 0.92;
+    margin: 24px 0 28px;
+  }
+  .hero-lead { max-width: 32em; margin-bottom: 36px; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+  .hero-proof {
+    display: flex;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    flex-wrap: wrap;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    position: relative;
+  }
+  .hero-proof::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0;
+    width: 56px; height: 2px;
+    background: var(--brand);
+  }
+  .hero-card-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+  }
+  .status-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px var(--success-soft);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px var(--success-soft); }
+    50%      { box-shadow: 0 0 0 8px transparent; }
+  }
+
+  /* ===== DIFFERENTIATOR ===== */
+  .differentiator { position: relative; }
+  .diff-backdrop { position: absolute; inset: 0; pointer-events: none; }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(3rem, 8vw, 6rem);
+    align-items: center;
+  }
+  .diff-text .h2 { margin: 16px 0 24px; }
+  .diff-body {
+    font-size: var(--fs-body);
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 18px;
+    max-width: 48ch;
+  }
+  .diff-cards { display: flex; flex-direction: column; gap: 18px; }
+  .diff-card { padding: 32px; }
+  .diff-card-label {
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+  }
+  .diff-card-label.brand { color: var(--brand); }
+  .diff-card--brand { background: var(--brand-soft); border-color: var(--brand-line); }
+  .diff-list { display: flex; flex-direction: column; gap: 10px; }
+  .diff-list li {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding-left: 26px;
+    position: relative;
+  }
+  .diff-list.bad li::before {
+    content: '✕';
+    position: absolute; left: 0;
+    color: var(--danger);
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+  .diff-list.good li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: var(--success);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .problem-card {
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .problem-icon {
+    width: 52px; height: 52px;
+    border-radius: var(--radius-sm);
+    background: var(--brand-soft);
+    color: var(--brand);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .problem-card .h3 { margin: 0; font-size: 1.2rem; }
+  .problem-card p {
+    font-size: 0.94rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+
+  /* ===== SOLUTION ===== */
+  .solution { position: relative; }
+  .solution-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  .solution-card {
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+  }
+  .solution-num {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    color: var(--brand);
+    opacity: 0.2;
+    line-height: 1;
+    font-style: italic;
+  }
+  .solution-tag {
+    font-size: var(--fs-eyebrow);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+  .solution-card .h3 { font-size: 1.4rem; margin: 0; }
+  .solution-card p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+  .solution-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--success-soft);
+    color: var(--success);
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    font-weight: 600;
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  /* ===== HOW STEPS ===== */
+  .how { position: relative; }
+  .how-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .how .container { position: relative; z-index: 1; }
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .how-step {
+    padding: 30px 24px;
+    border-radius: var(--radius);
+    background: rgba(242, 236, 223, 0.04);
+    border: 1px solid rgba(242, 236, 223, 0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top-color: rgba(255, 255, 255, 0.12);
+    transition: transform 0.4s var(--ease), background 0.4s var(--ease);
+  }
+  .how-step:hover {
+    transform: translateY(-4px);
+    background: rgba(242, 236, 223, 0.07);
+  }
+  .how-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--brand);
+    line-height: 1;
+    margin-bottom: 18px;
+    opacity: 0.85;
+  }
+  .how-step .h3 {
+    font-size: 1.05rem;
+    color: var(--bg);
+    margin-bottom: 10px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+  .how-step p {
+    font-size: 0.88rem;
+    color: rgba(242, 236, 223, 0.6);
+    line-height: 1.7;
+  }
+
+  /* ===== INDUSTRIES ===== */
+  .industry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .industry-item {
+    padding: 22px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .industry-item :global(.icon) {
+    color: var(--brand);
+  }
+
+  /* ===== RESULTS ===== */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .result-cell {
+    text-align: center;
+    padding: clamp(2rem, 4vw, 3rem) 24px;
+    border-right: 1px solid rgba(242, 236, 223, 0.10);
+  }
+  .result-cell:last-child { border-right: none; }
+  .result-number {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6.5vw, 5.5rem);
+    color: var(--bg);
+    line-height: 1;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .result-cell p {
+    font-size: 0.88rem;
+    color: rgba(242, 236, 223, 0.65);
+    line-height: 1.55;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .testimonial { padding: 36px 32px; }
+  .stars {
+    display: flex;
+    gap: 4px;
+    color: var(--brand);
+    margin-bottom: 18px;
+  }
+  .quote {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.55;
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .quote::before {
+    content: '“';
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 3rem;
+    color: var(--brand);
+    line-height: 0;
+    position: absolute;
+    top: 0.45em;
+    left: -0.3em;
+    opacity: 0.5;
+  }
+  .quote-author {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--brand-soft);
+    border: 1px solid var(--brand-line);
+    color: var(--brand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    font-family: var(--font-sans);
+  }
+  .quote-author strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .quote-author span {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+  }
+
+  /* ===== DEMO ===== */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: center;
+  }
+  .demo-text .h2 { margin: 16px 0 24px; }
+  .demo-text .lead { margin-bottom: 28px; }
+  .demo-steps {
+    list-style: decimal;
+    padding-left: 20px;
+    margin: 0 0 32px;
+  }
+  .demo-steps li {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    margin-bottom: 14px;
+    line-height: 1.55;
+    padding-left: 6px;
+  }
+  .demo-steps strong { color: var(--ink); font-weight: 600; }
+
+  /* ===== CTA ===== */
+  .cta { position: relative; padding-bottom: clamp(8rem, 14vw, 12rem); }
+  .cta-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .cta .container { position: relative; z-index: 1; }
+  .cta-card {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  }
+  .cta-card .h2 { margin-bottom: 22px; }
+  .cta-card .lead { margin-bottom: 36px; }
+  .cta-trust {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .cta-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--fs-eyebrow);
+    color: var(--ink-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .cta-trust :global(.icon) { color: var(--success); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hero-grid, .diff-grid, .demo-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .hero-display { font-size: clamp(3rem, 12vw, 5rem); }
+    .solution-grid, .results-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-steps { grid-template-columns: repeat(2, 1fr); }
+    .industry-grid { grid-template-columns: repeat(3, 1fr); }
+    .testimonial-grid, .problem-grid { grid-template-columns: 1fr; }
+    .result-cell { border-right: none; border-bottom: 1px solid rgba(242, 236, 223, 0.10); }
+    .result-cell:last-child { border-bottom: none; }
+  }
+  @media (max-width: 640px) {
+    .solution-grid { grid-template-columns: 1fr; }
+    .industry-grid { grid-template-columns: repeat(2, 1fr); }
+    .results-grid { grid-template-columns: 1fr; }
+    .how-steps { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+---
+
+<Base title="Education — Parvis AI" active="education">
+
+  <PageHeader
+    meta="05 — Education"
+    title={`Quantum computing, <em>visually.</em>`}
+    lead="An interactive primer on the quantum computing stack — qubits, gates, error correction, and where quantum advantage shows up."
+  />
+
+  <section class="quantum-section">
+    <div class="container">
+      <div class="quantum-frame">
+        <div id="quantum-root"></div>
+      </div>
+      <p class="quantum-credit">An external interactive — designed by a separate team. Lives here as a reference for what AI-native education can look like.</p>
+    </div>
+  </section>
+
+  <script type="module" src="/quantum/quantum.js"></script>
+
+</Base>
+
+<style>
+  .quantum-section {
+    padding: clamp(3rem, 5vw, 5rem) 0 clamp(5rem, 9vw, 8rem);
+    background: var(--bg-elev);
+    position: relative;
+  }
+  .quantum-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .quantum-frame {
+    position: relative;
+    background: var(--bg-paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow:
+      0 24px 60px -22px rgba(7, 15, 43, 0.18),
+      0 6px 20px -8px rgba(7, 15, 43, 0.08);
+  }
+
+  /* macOS-style traffic-light bar to mark this as an embedded surface */
+  .quantum-frame::before {
+    content: '';
+    display: block;
+    height: 36px;
+    background: linear-gradient(180deg, var(--bg-elev), var(--bg-paper));
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .quantum-frame::after {
+    content: '';
+    position: absolute;
+    top: 14px; left: 18px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #E8806A;
+    box-shadow:
+      14px 0 0 #E8C16A,
+      28px 0 0 #6FCB8E;
+  }
+
+  /* Override the dashboard's hardcoded inline white background and color
+     so it blends with our cream/dark theme surface. Inline styles win
+     over external CSS unless we use !important. */
+  .quantum-frame :global(#quantum-root > div) {
+    background: var(--bg-paper) !important;
+    color: var(--ink) !important;
+    font-family: var(--font-sans) !important;
+  }
+
+  /* In dark mode, also tone down any inline white surfaces inside */
+  :global(html[data-theme='dark']) .quantum-frame :global(#quantum-root > div),
+  :global(html[data-theme='dark']) .quantum-frame :global(#quantum-root [style*="background"]) {
+    background-color: var(--bg-paper) !important;
+  }
+  :global(html[data-theme='dark']) .quantum-frame :global(#quantum-root *) {
+    color: var(--ink) !important;
+  }
+  /* Restore inline accent badges (orange/green/etc) — those use background as
+     small pill colors and should stay as the dashboard intends. We only
+     re-apply the text color reset selectively. */
+  :global(html[data-theme='dark']) .quantum-frame :global(#quantum-root span[style*="background: rgb"]) {
+    color: #fff !important;
+  }
+
+  .quantum-frame :global(button) {
+    transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .quantum-frame :global(button:hover:not(:disabled)) {
+    transform: translateY(-1px);
+  }
+
+  .quantum-credit {
+    margin-top: 22px;
+    text-align: center;
+    font-size: var(--fs-eyebrow);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+</style>

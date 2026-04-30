@@ -1,0 +1,446 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import GlassCard from '../components/GlassCard.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Icon from '../components/Icon.astro';
+import PhoneMockup from '../components/PhoneMockup.astro';
+import CtaSection from '../components/CtaSection.astro';
+
+const pillar1Bubbles = [
+  { side: 'in' as const, sender: 'Missed call', text: '', time: '3:12 PM' },
+  { side: 'out' as const, text: 'Hi! Sorry we missed your call. This is Sharp Edge Barbershop. How can we help?', time: '3:12 PM' },
+  { side: 'in' as const, text: 'Hey, I want to book a fade for Saturday', time: '3:13 PM' },
+];
+
+const pillar3Bubbles = [
+  { side: 'out' as const, text: "Hi Sarah! Thanks for visiting Glenview Family Dental today. We'd love your feedback! Could you leave us a quick Google review? ⭐", time: '4:30 PM' },
+  { side: 'out' as const, text: '🔗 Leave a Review', time: '4:30 PM', link: true },
+  { side: 'in' as const, text: 'Done! Left you 5 stars. Dr. K is the best! 😊', time: '4:45 PM' },
+];
+
+const platformFeatures = [
+  { icon: 'chart', title: 'CRM & Pipeline Management', body: 'Track every lead, deal, and customer in one place. Visual pipelines show exactly where every opportunity stands.' },
+  { icon: 'funnel', title: 'Unlimited Sales Funnels', body: 'Build high-converting landing pages and sales funnels that capture leads and drive revenue — no limits.' },
+  { icon: 'globe', title: 'Website Builder', body: 'Create professional websites with our drag-and-drop builder. No coding, no designers, no hassle.' },
+  { icon: 'clipboard', title: 'Surveys & Forms', body: 'Collect customer feedback, generate leads, and gather data with customizable surveys and forms.' },
+  { icon: 'mail', title: 'Email Marketing', body: 'Send broadcasts, drip campaigns, and automated emails. Built-in templates and scheduling included.' },
+  { icon: 'sms', title: '2-Way SMS Marketing', body: 'Send and receive text messages with leads and customers. Automated or manual — your choice.' },
+  { icon: 'calendar', title: 'Booking & Appointments', body: 'Online scheduling that syncs with your calendar. Automated reminders reduce no-shows by up to 90%.' },
+  { icon: 'gear', title: 'Workflow Automations', body: 'Build custom automations for any scenario. If/then logic, triggers, and actions that run your business on autopilot.' },
+  { icon: 'cap', title: 'Courses & Products', body: 'Create and sell online courses, memberships, and digital products directly through the platform.' },
+  { icon: 'phone', title: 'Call Tracking', body: 'Track every inbound and outbound call. Know which campaigns drive calls and never lose a lead.' },
+  { icon: 'star', title: 'Reputation Management', body: 'Monitor, request, and respond to reviews across Google, Facebook, and more — all from one dashboard.' },
+  { icon: 'sparkles', title: 'Tracking & Analytics', body: 'Real-time dashboards showing leads, conversions, revenue, and campaign performance at a glance.' },
+  { icon: 'users', title: 'Communities', body: 'Build private communities for your customers or members. Engage, educate, and retain your audience.' },
+  { icon: 'doc-sign', title: 'Document Signing', body: 'Send contracts and agreements for e-signature. Track status and get signed documents back fast.' },
+  { icon: 'mobile', title: 'Gray-Labeled Mobile App', body: 'Your own branded mobile app for you and your team. Manage leads, conversations, and calendars on the go.' },
+];
+---
+
+<Base title="How It Works — Parvis AI" active="services">
+
+  <PageHeader
+    meta="02 — Services"
+    title={`Three automations.<br/>Zero effort <em>from you.</em>`}
+    lead="We set up everything, customize it to your business, and you start seeing results within 48 hours."
+  />
+
+  <!-- PILLAR 1 -->
+  <section class="section pillar">
+    <div class="container">
+      <div class="pillar-grid">
+        <div class="pillar-text" data-reveal>
+          <div class="pillar-num">01</div>
+          <Eyebrow>Missed Call Text-Back</Eyebrow>
+          <h2 class="h2"><em>Never lose</em> a caller again.</h2>
+          <p class="pillar-body">When you miss a call, our system sends a personalized text within 5 seconds. The customer thinks YOU texted them. A conversation starts, and you respond when you're free.</p>
+          <ul class="feature-list">
+            <li><Icon name="check" size={16} /> Instant text-back in under 5 seconds</li>
+            <li><Icon name="check" size={16} /> Customized with your business name and tone</li>
+            <li><Icon name="check" size={16} /> Works 24/7 including nights and weekends</li>
+            <li><Icon name="check" size={16} /> Conversation flows to your phone via text</li>
+            <li><Icon name="check" size={16} /> After-hours messages with custom responses</li>
+          </ul>
+          <div class="pillar-stat"><strong>Result:</strong> Businesses recover up to 40% of leads they were previously losing.</div>
+        </div>
+        <div class="pillar-visual" data-reveal>
+          <GlassCard size="lg" padding="32px">
+            <PhoneMockup business="Sharp Edge Barbershop" bubbles={pillar1Bubbles} />
+          </GlassCard>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLAR 2 -->
+  <section class="section section--paper pillar">
+    <div class="container">
+      <div class="pillar-grid pillar-grid--reverse">
+        <div class="pillar-visual" data-reveal>
+          <GlassCard size="lg" padding="36px" class="sequence-card">
+            <div class="seq-step seq-active">
+              <div class="seq-dot"></div>
+              <div>
+                <strong>Instant</strong>
+                <span>SMS: "Thanks for reaching out! When's a good time to chat?"</span>
+              </div>
+            </div>
+            <div class="seq-line"></div>
+            <div class="seq-step">
+              <div class="seq-dot"></div>
+              <div>
+                <strong>Day 1 — 9am</strong>
+                <span>Email: Follow-up with service info + booking link</span>
+              </div>
+            </div>
+            <div class="seq-line"></div>
+            <div class="seq-step">
+              <div class="seq-dot"></div>
+              <div>
+                <strong>Day 3</strong>
+                <span>SMS: "Still interested? We have openings this week!"</span>
+              </div>
+            </div>
+            <div class="seq-line"></div>
+            <div class="seq-step">
+              <div class="seq-dot"></div>
+              <div>
+                <strong>Day 7</strong>
+                <span>SMS: Final check-in + special offer</span>
+              </div>
+            </div>
+          </GlassCard>
+        </div>
+        <div class="pillar-text" data-reveal>
+          <div class="pillar-num">02</div>
+          <Eyebrow>Smart Follow-Up Sequences</Eyebrow>
+          <h2 class="h2">Every lead followed up. <em>Automatically.</em></h2>
+          <p class="pillar-body">When a new lead comes in — from a form, a call, or a text — they enter an automated follow-up sequence. They get a text right away, an email the next morning, and another check-in on day 3. The sequence runs until they book or reply.</p>
+          <ul class="feature-list">
+            <li><Icon name="check" size={16} /> Multi-channel: SMS + email follow-ups</li>
+            <li><Icon name="check" size={16} /> Timed sequences over days/weeks</li>
+            <li><Icon name="check" size={16} /> Stops automatically when they reply or book</li>
+            <li><Icon name="check" size={16} /> Custom messages for your industry</li>
+            <li><Icon name="check" size={16} /> Re-engagement campaigns for old leads</li>
+          </ul>
+          <div class="pillar-stat"><strong>Result:</strong> 3-5x more appointments booked compared to manual follow-up.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLAR 3 -->
+  <section class="section pillar">
+    <div class="container">
+      <div class="pillar-grid">
+        <div class="pillar-text" data-reveal>
+          <div class="pillar-num">03</div>
+          <Eyebrow>Automated Review Requests</Eyebrow>
+          <h2 class="h2">Turn every happy customer into a <em>5-star review.</em></h2>
+          <p class="pillar-body">After every appointment, your customer gets a friendly text with a direct link to your Google Reviews page. No awkward asking. No manual work. Just a steady stream of authentic reviews building your online reputation.</p>
+          <ul class="feature-list">
+            <li><Icon name="check" size={16} /> Automated text after each appointment</li>
+            <li><Icon name="check" size={16} /> Direct link to your Google Reviews</li>
+            <li><Icon name="check" size={16} /> Follow-up reminder if they don't leave one</li>
+            <li><Icon name="check" size={16} /> Track review count growth on your dashboard</li>
+            <li><Icon name="check" size={16} /> Negative feedback routed privately to you first</li>
+          </ul>
+          <div class="pillar-stat"><strong>Result:</strong> Average of 3x more Google reviews per month.</div>
+        </div>
+        <div class="pillar-visual" data-reveal>
+          <GlassCard size="lg" padding="32px">
+            <PhoneMockup business="Glenview Family Dental" bubbles={pillar3Bubbles} />
+          </GlassCard>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section class="section section--inverse dash-section">
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow light>Your Dashboard</Eyebrow>
+        <h2 class="h2">See everything <em>in one place.</em></h2>
+        <p class="lead">Track recovered leads, follow-up status, and review growth — all in a simple dashboard you can check from your phone.</p>
+      </div>
+      <div class="dashboard" data-reveal>
+        <div class="dash-bar"><span></span><span></span><span></span></div>
+        <div class="dash-body">
+          <div class="dash-stats">
+            <div class="dash-stat">
+              <div class="dash-num">23</div>
+              <div class="dash-label">Calls Recovered</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-num">47</div>
+              <div class="dash-label">Leads Followed Up</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-num">14</div>
+              <div class="dash-label">New Reviews</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-num">89%</div>
+              <div class="dash-label">Response Rate</div>
+            </div>
+          </div>
+          <div class="dash-chart">
+            <div class="chart-bar" style="height:30%"></div>
+            <div class="chart-bar" style="height:45%"></div>
+            <div class="chart-bar" style="height:55%"></div>
+            <div class="chart-bar" style="height:40%"></div>
+            <div class="chart-bar" style="height:70%"></div>
+            <div class="chart-bar" style="height:85%"></div>
+            <div class="chart-bar" style="height:75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORM FEATURES -->
+  <section class="section platform">
+    <div class="container">
+      <div class="section-intro center" data-reveal>
+        <Eyebrow>The Full Platform</Eyebrow>
+        <h2 class="h2">Everything you need <em>to run and grow</em> your business.</h2>
+        <p class="lead">Parvis AI isn't just three automations — it's a complete business growth platform.</p>
+      </div>
+      <div class="platform-grid">
+        {platformFeatures.map((f) => (
+          <GlassCard size="sm" hover={true} class="platform-card" data-reveal>
+            <div class="platform-icon"><Icon name={f.icon} size={22} /></div>
+            <h3 class="platform-title">{f.title}</h3>
+            <p>{f.body}</p>
+          </GlassCard>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaSection
+    title="Ready to stop losing <em>leads?</em>"
+    body="See all three automations working live with your own business number. Free, no commitment."
+    ctaLabel="Get Your Free Demo"
+    trust={["Free setup", "No contracts", "Cancel anytime"]}
+  />
+
+</Base>
+
+<style>
+  .pillar { position: relative; }
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 7vw, 6rem);
+    align-items: center;
+  }
+  .pillar-grid--reverse { direction: rtl; }
+  .pillar-grid--reverse > * { direction: ltr; }
+
+  .pillar-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 4rem;
+    color: var(--brand);
+    opacity: 0.18;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pillar-text .h2 { margin: 18px 0 22px; }
+  .pillar-body {
+    font-size: var(--fs-body);
+    color: var(--ink-muted);
+    line-height: 1.75;
+    margin-bottom: 24px;
+    max-width: 50ch;
+  }
+  .feature-list {
+    margin-bottom: 24px;
+  }
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list :global(.icon) { color: var(--success); flex-shrink: 0; }
+  .pillar-stat {
+    background: var(--success-soft);
+    color: var(--success);
+    padding: 12px 18px;
+    border-radius: var(--radius-pill);
+    font-size: 0.88rem;
+    display: inline-block;
+    line-height: 1.5;
+  }
+  .pillar-stat strong { font-weight: 700; }
+
+  .pillar-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Sequence card */
+  .sequence-card {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .seq-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 4px 0;
+  }
+  .seq-step strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .seq-step span {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+  .seq-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--rule-strong);
+    background: transparent;
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .seq-step.seq-active .seq-dot {
+    background: var(--brand);
+    border-color: var(--brand);
+    box-shadow: 0 0 0 4px var(--brand-soft);
+  }
+  .seq-line {
+    width: 2px;
+    height: 22px;
+    background: var(--rule);
+    margin-left: 5px;
+  }
+
+  /* Dashboard mockup */
+  .dash-section { position: relative; }
+  .dashboard {
+    background: rgba(242, 236, 223, 0.04);
+    border: 1px solid rgba(242, 236, 223, 0.12);
+    border-radius: var(--radius);
+    overflow: hidden;
+    max-width: 880px;
+    margin: 0 auto;
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+  }
+  .dash-bar {
+    display: flex;
+    gap: 6px;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(242, 236, 223, 0.10);
+  }
+  .dash-bar span {
+    width: 9px; height: 9px; border-radius: 50%;
+    background: rgba(242, 236, 223, 0.20);
+  }
+  .dash-body { padding: 28px; }
+  .dash-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .dash-stat {
+    background: rgba(242, 236, 223, 0.05);
+    padding: 22px 18px;
+    text-align: center;
+    border: 1px solid rgba(242, 236, 223, 0.10);
+    border-radius: var(--radius-sm);
+  }
+  .dash-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--bg);
+    margin-bottom: 6px;
+    line-height: 1;
+  }
+  .dash-label {
+    font-size: 0.7rem;
+    color: rgba(242, 236, 223, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .dash-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    height: 100px;
+    padding: 0 12px;
+  }
+  .chart-bar {
+    flex: 1;
+    background: linear-gradient(180deg, var(--brand) 0%, rgba(138, 161, 220, 0.4) 100%);
+    border-radius: 4px 4px 0 0;
+    transition: opacity 0.3s var(--ease);
+  }
+  .chart-bar:hover { opacity: 0.8; }
+
+  /* Platform grid */
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .platform-card {
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .platform-icon {
+    width: 44px; height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--brand-soft);
+    color: var(--brand);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  .platform-title {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .platform-card p {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+
+  @media (max-width: 1024px) {
+    .pillar-grid, .pillar-grid--reverse { grid-template-columns: 1fr; gap: 48px; }
+    .pillar-grid--reverse { direction: ltr; }
+    .platform-grid { grid-template-columns: repeat(2, 1fr); }
+    .dash-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .platform-grid { grid-template-columns: 1fr; }
+    .dash-stats { grid-template-columns: 1fr; }
+  }
+</style>

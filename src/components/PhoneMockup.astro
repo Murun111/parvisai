@@ -1,0 +1,169 @@
+---
+interface Bubble {
+  side: 'in' | 'out';
+  text?: string;
+  sender?: string;
+  time: string;
+  link?: boolean;
+}
+
+interface Props {
+  business?: string;
+  bubbles: Bubble[];
+}
+
+const { business = 'Parvis AI', bubbles } = Astro.props;
+---
+
+<div class="phone">
+  <div class="phone-frame">
+    <div class="phone-notch"></div>
+    <div class="phone-screen">
+      <div class="phone-status">
+        <span class="status-business">{business}</span>
+        <span class="status-bars">
+          <svg width="40" height="10" viewBox="0 0 40 10" aria-hidden="true">
+            <rect x="0" y="6" width="3" height="4" rx="0.5" />
+            <rect x="5" y="4" width="3" height="6" rx="0.5" />
+            <rect x="10" y="2" width="3" height="8" rx="0.5" />
+            <rect x="15" y="0" width="3" height="10" rx="0.5" />
+          </svg>
+        </span>
+      </div>
+      <div class="phone-thread">
+        {bubbles.map((b) => (
+          <div class={`bubble ${b.side === 'in' ? 'bubble--in' : 'bubble--out'}${b.link ? ' bubble--link' : ''}`}>
+            {b.sender && <span class="bubble-sender">{b.sender}</span>}
+            {b.text && <span class="bubble-text">{b.text}</span>}
+            <span class="bubble-time">{b.time}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="phone-home"></div>
+  </div>
+</div>
+
+<style>
+  .phone {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .phone-frame {
+    width: 280px;
+    background: #0A0F1F;
+    border-radius: 38px;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 50px 80px -30px rgba(7, 15, 43, 0.55),
+      0 20px 40px -20px rgba(7, 15, 43, 0.30),
+      inset 0 0 0 2px rgba(255, 255, 255, 0.04);
+    position: relative;
+  }
+  .phone-notch {
+    width: 90px;
+    height: 22px;
+    background: #0A0F1F;
+    border-radius: 0 0 14px 14px;
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .phone-home {
+    width: 110px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .phone-screen {
+    background: #F2ECDF;
+    border-radius: 28px;
+    padding: 36px 14px 20px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
+  }
+  .phone-status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px 8px;
+    border-bottom: 1px solid rgba(10, 15, 31, 0.08);
+    margin-bottom: 4px;
+  }
+  .status-business {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: #0A0F1F;
+    letter-spacing: -0.01em;
+  }
+  .status-bars svg { color: #0A0F1F; }
+  .status-bars rect { fill: currentColor; opacity: 0.7; }
+
+  .phone-thread {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 2px;
+  }
+
+  .bubble {
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 0.78rem;
+    line-height: 1.45;
+    max-width: 85%;
+    animation: bubbleIn 0.5s var(--ease) backwards;
+  }
+  .bubble:nth-child(1) { animation-delay: 0.1s; }
+  .bubble:nth-child(2) { animation-delay: 0.4s; }
+  .bubble:nth-child(3) { animation-delay: 0.7s; }
+  .bubble:nth-child(4) { animation-delay: 1.0s; }
+  .bubble:nth-child(5) { animation-delay: 1.3s; }
+
+  @keyframes bubbleIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .bubble--in {
+    background: #E5DFD0;
+    color: #0A0F1F;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .bubble--out {
+    background: #0F1E45;
+    color: #F2ECDF;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .bubble--link {
+    background: #1F6B3A;
+  }
+  .bubble-sender {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 600;
+    opacity: 0.55;
+    margin-bottom: 2px;
+  }
+  .bubble-text { display: block; }
+  .bubble-time {
+    display: block;
+    font-size: 0.6rem;
+    opacity: 0.5;
+    margin-top: 4px;
+    text-align: right;
+  }
+</style>

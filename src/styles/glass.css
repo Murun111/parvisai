@@ -1,0 +1,109 @@
+/* ===== GLASSMORPHISM ===== */
+
+.glass,
+.glass-sm,
+.glass-lg {
+  position: relative;
+  background: var(--glass-tint);
+  border: 1px solid var(--glass-stroke);
+  border-top-color: var(--glass-highlight);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(28px) saturate(140%);
+  -webkit-backdrop-filter: blur(28px) saturate(140%);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  transition:
+    transform 0.5s var(--ease),
+    box-shadow 0.5s var(--ease),
+    background 0.5s var(--ease);
+  isolation: isolate;
+}
+
+.glass-sm {
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  padding: 24px 26px;
+}
+
+.glass-lg {
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  padding: 44px 40px;
+}
+
+.glass-hover:hover,
+.glass-sm.glass-hover:hover,
+.glass-lg.glass-hover:hover {
+  transform: translateY(-4px);
+  background: var(--glass-tint-deep);
+  box-shadow:
+    0 36px 80px -24px rgba(7, 15, 43, 0.32),
+    0 8px 24px -10px rgba(7, 15, 43, 0.14),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+/* Inner top highlight strip — extra "glass" cue */
+.glass::before,
+.glass-sm::before,
+.glass-lg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    180deg,
+    var(--glass-highlight) 0%,
+    transparent 35%,
+    transparent 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Fallback when backdrop-filter unsupported */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass, .glass-sm, .glass-lg {
+    background: var(--bg-elev);
+    border-color: var(--rule-strong);
+  }
+}
+
+/* Backdrop helpers — give glass something to blur over */
+.backdrop-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.backdrop-blob.navy {
+  background: radial-gradient(circle, var(--brand) 0%, transparent 70%);
+}
+.backdrop-blob.cream {
+  background: radial-gradient(circle, var(--bg-elev) 0%, transparent 70%);
+}
+
+.backdrop-word {
+  position: absolute;
+  font-family: var(--font-display);
+  font-size: clamp(14rem, 32vw, 28rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+html[data-theme='dark'] .backdrop-word { opacity: 0.06; }
