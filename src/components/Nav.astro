@@ -1,0 +1,153 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  active?: 'home' | 'services' | 'pricing' | 'contact' | 'education' | null;
+}
+const { active = null } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Home', key: 'home' },
+  { href: '/services', label: 'How It Works', key: 'services' },
+  { href: '/pricing', label: 'Pricing', key: 'pricing' },
+  { href: '/contact', label: 'Contact', key: 'contact' },
+  { href: '/education', label: 'Education', key: 'education' },
+];
+---
+
+<nav id="navbar" aria-label="Primary">
+  <div class="nav-container">
+    <a href="/" class="logo transition-link" aria-label="Parvis AI home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M11 9v14M11 9h6.5a4 4 0 0 1 0 8H11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="logo-word">Parvis <em>AI</em></span>
+    </a>
+
+    <div class="nav-links" id="nav-links">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class={`nav-link transition-link${active === l.key ? ' nav-active' : ''}`}
+        >
+          {l.label}
+        </a>
+      ))}
+      <span class="nav-divider"></span>
+      <a href="/contact" class="btn btn-nav transition-link">Get a Free Demo</a>
+      <ThemeToggle />
+    </div>
+
+    <button class="mobile-menu" id="mobile-menu" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+
+  .nav-container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .logo em { font-style: italic; color: var(--brand); }
+  .logo-mark { width: 28px; height: 28px; color: var(--brand); display: inline-flex; }
+  .logo-mark svg { width: 100%; height: 100%; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .nav-link {
+    font-size: 0.84rem;
+    color: var(--ink-muted);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.3s var(--ease);
+    position: relative;
+    padding: 4px 0;
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-link.nav-active { color: var(--ink); font-weight: 500; }
+  .nav-link.nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px; left: 0; right: 0;
+    height: 1px;
+    background: var(--brand);
+  }
+
+  .nav-divider {
+    width: 1px;
+    height: 22px;
+    background: var(--rule-strong);
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+  }
+  .mobile-menu span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: 0.3s var(--ease);
+  }
+
+  @media (max-width: 900px) {
+    .nav-links {
+      position: absolute;
+      top: 72px; left: 0; right: 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 28px var(--gutter);
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+      transform: translateY(-12px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .nav-links.mobile-open {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .nav-divider { display: none; }
+    .mobile-menu { display: flex; }
+  }
+</style>

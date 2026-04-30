@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import GlassCard from '../components/GlassCard.astro';
+---
+
+<Base title="Education — Parvis AI" active="education">
+
+  <PageHeader
+    meta="05 — Education"
+    title={`Quantum computing, <em>visually.</em>`}
+    lead="An interactive primer on the quantum computing stack — qubits, gates, error correction, and where quantum advantage shows up."
+  />
+
+  <section class="section quantum-section">
+    <div class="container">
+      <GlassCard size="lg" class="quantum-frame" padding="clamp(20px, 3vw, 32px)" data-reveal>
+        <div id="quantum-root"></div>
+      </GlassCard>
+    </div>
+  </section>
+
+  <script type="module" src="/quantum/quantum.js"></script>
+
+</Base>
+
+<style>
+  .quantum-section { padding-top: clamp(3rem, 5vw, 4rem); }
+  .quantum-frame {
+    overflow: hidden;
+  }
+  /* The quantum bundle styles its own internals; we just give it a glass frame
+     and a clean cream/dark backdrop via the page chrome. */
+  .quantum-frame :global(button) {
+    transition: transform 140ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .quantum-frame :global(button:hover:not(:disabled)) {
+    transform: translateY(-1px);
+  }
+</style>

@@ -20,3 +20,7 @@ yarn-error.log*
 
 # Vite build cache
 .vite/
+
+# Astro build output
+dist/
+.astro/

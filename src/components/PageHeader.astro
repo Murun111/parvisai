@@ -1,0 +1,52 @@
+---
+interface Props {
+  meta: string;
+  title: string;        // may contain <em>...</em>
+  lead?: string;
+}
+const { meta, title, lead } = Astro.props;
+---
+
+<section class="page-header">
+  <div class="ph-bg" aria-hidden="true">
+    <div class="backdrop-blob navy" style="width:520px;height:520px;top:-200px;right:-180px;"></div>
+    <div class="backdrop-blob cream" style="width:380px;height:380px;bottom:-200px;left:-100px;"></div>
+  </div>
+  <div class="container">
+    <div class="ph-grid">
+      <span class="meta ph-meta">{meta}</span>
+      <h1 class="h1 ph-title" set:html={title}></h1>
+      {lead && <p class="lead ph-lead">{lead}</p>}
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-header {
+    padding: clamp(8rem, 16vw, 13rem) 0 clamp(3.5rem, 7vw, 5.5rem);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .ph-bg { position: absolute; inset: 0; pointer-events: none; }
+  .page-header .container { position: relative; z-index: 1; }
+  .ph-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: end;
+  }
+  .ph-meta { grid-column: 1 / -1; margin-bottom: 18px; }
+  .ph-title { grid-column: 1; max-width: none; margin: 0; }
+  .ph-lead {
+    grid-column: 2;
+    align-self: end;
+    padding-bottom: 0.2em;
+    max-width: 38ch;
+    margin: 0;
+  }
+  @media (max-width: 1024px) {
+    .ph-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .ph-lead { grid-column: 1; }
+  }
+</style>

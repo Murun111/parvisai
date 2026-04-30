@@ -1,0 +1,19 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+  hover?: boolean;
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+  padding?: string;
+}
+
+const { size = 'md', hover = false, as: Tag = 'div', class: className = '', padding } = Astro.props;
+const sizeClass = size === 'sm' ? 'glass-sm' : size === 'lg' ? 'glass-lg' : 'glass';
+const hoverClass = hover ? ' glass-hover' : '';
+const finalClass = `${sizeClass}${hoverClass} ${className}`.trim();
+const style = padding ? `padding:${padding}` : '';
+---
+
+<Tag class={finalClass} style={style}>
+  <slot />
+</Tag>

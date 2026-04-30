@@ -1,0 +1,9 @@
+---
+interface Props {
+  light?: boolean;
+  class?: string;
+}
+const { light = false, class: className = '' } = Astro.props;
+const cls = `eyebrow${light ? ' light' : ''} ${className}`.trim();
+---
+<span class={cls}><slot /></span>

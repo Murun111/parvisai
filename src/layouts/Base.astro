@@ -1,0 +1,62 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  active?: 'home' | 'services' | 'pricing' | 'contact' | 'education' | null;
+}
+
+const {
+  title,
+  description = 'AI employees for local businesses. One system that answers calls, follows up on leads, and asks for reviews — automatically.',
+  active = null,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Theme bootstrap (no FOUC) -->
+  <script is:inline>
+    (function () {
+      var saved = localStorage.getItem('parvis-theme');
+      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (systemDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+
+<body class="page-transition">
+  <Nav active={active} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+
+  <script>
+    import '../scripts/theme.ts';
+    import '../scripts/transitions.ts';
+    import '../scripts/reveal.ts';
+    import '../scripts/faq.ts';
+    import '../scripts/stat-counter.ts';
+    import '../scripts/contact-form.ts';
+    import '../scripts/mobile-menu.ts';
+  </script>
+</body>
+</html>

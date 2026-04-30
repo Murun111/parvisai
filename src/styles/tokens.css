@@ -1,0 +1,87 @@
+/* ===== PARVIS AI — DESIGN TOKENS ===== */
+/* Cream / Black / Navy editorial system */
+
+:root {
+  /* Light palette */
+  --bg:               #F2ECDF;
+  --bg-elev:          #EAE3D2;
+  --bg-paper:         #F7F2E8;
+  --bg-deep:          #0A0F1F;        /* navy-black for inverse sections */
+  --ink:              #0A0A0C;
+  --ink-soft:         #1B1B22;
+  --ink-muted:        #5A5A66;
+  --ink-faint:        #8A8579;
+  --brand:            #0F1E45;        /* navy */
+  --brand-deep:       #070F2B;
+  --brand-soft:       rgba(15, 30, 69, 0.08);
+  --brand-line:       rgba(15, 30, 69, 0.18);
+  --rule:             rgba(10, 10, 12, 0.10);
+  --rule-strong:      rgba(10, 10, 12, 0.20);
+
+  /* Glass */
+  --glass-tint:       rgba(15, 30, 69, 0.05);
+  --glass-tint-deep:  rgba(15, 30, 69, 0.10);
+  --glass-stroke:     rgba(15, 30, 69, 0.14);
+  --glass-highlight:  rgba(255, 255, 255, 0.55);
+  --glass-shadow:     0 24px 60px -22px rgba(7, 15, 43, 0.28),
+                      0 6px 20px -8px rgba(7, 15, 43, 0.10),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  /* Semantic */
+  --success:          #1F6B3A;
+  --success-soft:     rgba(31, 107, 58, 0.10);
+  --danger:           #B0413E;
+
+  /* Type */
+  --font-sans:        'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display:     'DM Serif Display', 'Iowan Old Style', Georgia, serif;
+  --fs-eyebrow:       0.6875rem;     /* 11px */
+  --fs-body:          1.0625rem;     /* 17px */
+  --fs-lead:          1.25rem;       /* 20px */
+  --fs-h3:            clamp(1.4rem, 2.4vw, 1.85rem);
+  --fs-h2:            clamp(2.25rem, 4vw, 3.5rem);
+  --fs-h1:            clamp(3rem, 6vw, 5rem);
+  --fs-mega:          clamp(3.5rem, 9vw, 7.5rem);
+
+  /* Motion */
+  --ease:             cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring:      cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout */
+  --radius-sm:        12px;
+  --radius:           20px;
+  --radius-lg:        28px;
+  --radius-pill:      999px;
+  --container:        1120px;
+  --gutter:           36px;
+}
+
+/* Dark palette */
+html[data-theme='dark'] {
+  --bg:               #0A0A0C;
+  --bg-elev:          #121317;
+  --bg-paper:         #16171C;
+  --bg-deep:          #050507;
+  --ink:              #F2ECDF;
+  --ink-soft:         #DCD4C2;
+  --ink-muted:        #948D7C;
+  --ink-faint:        #5C574E;
+  --brand:            #8AA1DC;
+  --brand-deep:       #4D67A6;
+  --brand-soft:       rgba(138, 161, 220, 0.10);
+  --brand-line:       rgba(138, 161, 220, 0.22);
+  --rule:             rgba(242, 236, 223, 0.10);
+  --rule-strong:      rgba(242, 236, 223, 0.20);
+
+  --glass-tint:       rgba(242, 236, 223, 0.04);
+  --glass-tint-deep:  rgba(242, 236, 223, 0.08);
+  --glass-stroke:     rgba(242, 236, 223, 0.10);
+  --glass-highlight:  rgba(255, 255, 255, 0.06);
+  --glass-shadow:     0 24px 60px -22px rgba(0, 0, 0, 0.55),
+                      0 6px 20px -8px rgba(0, 0, 0, 0.30),
+                      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  --success:          #6FCB8E;
+  --success-soft:     rgba(111, 203, 142, 0.12);
+  --danger:           #E08785;
+}
