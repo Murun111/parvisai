@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="80" viewBox="0 0 400 80">
+  <rect width="400" height="80" fill="#0d0d12" rx="12"/>
+  <g transform="translate(24,40)">
+    <polygon points="0,-28 24,-14 24,14 0,28 -24,14 -24,-14" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+    <polygon points="0,-16 14,-8 14,8 0,16 -14,8 -14,-8" fill="#7F77DD" opacity="0.2"/>
+    <line x1="0" y1="-28" x2="0" y2="-14" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="24" y1="-14" x2="12" y2="-7" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="24" y1="14" x2="12" y2="7" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="0" y1="28" x2="0" y2="14" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="-24" y1="14" x2="-12" y2="7" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="-24" y1="-14" x2="-12" y2="-7" stroke="#AFA9EC" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="4" fill="#7F77DD"/>
+  </g>
+  <text x="68" y="34" font-size="26" font-weight="700" fill="#ffffff" font-family="system-ui,sans-serif" letter-spacing="-0.5">Parvis</text>
+  <text x="165" y="34" font-size="26" font-weight="200" fill="#7F77DD" font-family="system-ui,sans-serif" letter-spacing="1">AI</text>
+  <text x="68" y="54" font-size="9" fill="#555566" font-family="system-ui,sans-serif" letter-spacing="2.5">INTELLIGENT SYSTEMS</text>
+</svg>

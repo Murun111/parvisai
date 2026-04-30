@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="110" viewBox="0 0 160 110">
+  <g transform="translate(80,42)">
+    <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#7F77DD" stroke-width="1.5"/>
+    <polygon points="0,-18 15,-9 15,9 0,18 -15,9 -15,-9" fill="#7F77DD" opacity="0.2"/>
+    <line x1="0" y1="-30" x2="0" y2="-12" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="26" y1="-15" x2="10" y2="-6" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="26" y1="15" x2="10" y2="6" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="0" y1="30" x2="0" y2="12" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="-26" y1="15" x2="-10" y2="6" stroke="#AFA9EC" stroke-width="1.5"/>
+    <line x1="-26" y1="-15" x2="-10" y2="-6" stroke="#AFA9EC" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="4" fill="#7F77DD"/>
+  </g>
+  <text x="80" y="85" font-size="20" font-weight="600" fill="#ffffff" font-family="system-ui,sans-serif" text-anchor="middle" letter-spacing="-0.3">Parvis</text>
+  <text x="80" y="104" font-size="11" font-weight="300" fill="#7F77DD" font-family="system-ui,sans-serif" text-anchor="middle" letter-spacing="3">AI</text>
+</svg>

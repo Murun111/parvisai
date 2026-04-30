@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a Demo - Parvis AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+</head>
+<body class="page-transition">
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo transition-link">Parvis <span class="logo-accent">AI</span></a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="transition-link">Home</a>
+                <a href="services.html" class="transition-link">How It Works</a>
+                <a href="pricing.html" class="transition-link">Pricing</a>
+                <a href="contact.html" class="nav-active transition-link">Contact</a>
+                <a href="education.html" class="transition-link">Education</a>
+                <span class="nav-divider"></span>
+                <a href="contact.html" class="btn btn-nav transition-link">Get a Free Demo</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode"><span class="toggle-icon">☀️</span></button>
+            </div>
+            <button class="mobile-menu" id="mobile-menu" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header page-header--editorial">
+        <div class="container">
+            <div class="ph-grid">
+                <span class="editorial-meta">04 — Contact</span>
+                <h1>See Parvis AI in action with a free demo.</h1>
+                <p class="lead">Fill out the form below. We'll reach out within 24 hours to schedule your personalized demo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-layout">
+                <div class="contact-info-side">
+                    <div class="contact-block">
+                        <h3>What happens next?</h3>
+                        <ol class="next-steps">
+                            <li><strong>You fill out the form</strong> -- takes 60 seconds.</li>
+                            <li><strong>We call you</strong> -- within 24 hours to schedule your demo.</li>
+                            <li><strong>Live demo</strong> -- we show you the system working with your business number.</li>
+                            <li><strong>You decide</strong> -- no pressure, no obligation.</li>
+                        </ol>
+                    </div>
+
+                    <div class="contact-block">
+                        <h3>Email</h3>
+                        <p><a href="mailto:hello@parvisai.com">hello@parvisai.com</a></p>
+                    </div>
+
+                    <div class="contact-block">
+                        <h3>Phone</h3>
+                        <p><a href="tel:+18475550199">(847) 555-0199</a></p>
+                    </div>
+
+                    <div class="contact-promise">
+                        <h3>Our Guarantee</h3>
+                        <ul>
+                            <li>&#10003; Free demo, no commitment</li>
+                            <li>&#10003; Free setup if you sign up</li>
+                            <li>&#10003; 30-day money-back guarantee</li>
+                            <li>&#10003; No contracts ever</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-form-side">
+                    <form class="contact-form" id="contact-form">
+                        <h3>Request Your Free Demo</h3>
+                        <p class="form-subtitle">Tell us about your business and we'll show you exactly how Parvis AI will work for you.</p>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="c-name">Your Name *</label>
+                                <input type="text" id="c-name" placeholder="Full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-phone">Phone Number *</label>
+                                <input type="tel" id="c-phone" placeholder="(555) 000-0000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="c-email">Email *</label>
+                                <input type="email" id="c-email" placeholder="you@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="c-business">Business Name</label>
+                                <input type="text" id="c-business" placeholder="Your business">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="c-type">What type of business?</label>
+                            <select id="c-type">
+                                <option value="">Select your industry...</option>
+                                <option>Dental / Medical</option>
+                                <option>Salon / Spa / Barbershop</option>
+                                <option>HVAC / Plumbing / Electrical</option>
+                                <option>Auto Repair / Detailing</option>
+                                <option>Law Firm</option>
+                                <option>Real Estate</option>
+                                <option>Fitness / Gym</option>
+                                <option>Restaurant / Food Service</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="c-calls">How many calls does your business get per week (roughly)?</label>
+                            <select id="c-calls">
+                                <option value="">Select...</option>
+                                <option>Under 20</option>
+                                <option>20-50</option>
+                                <option>50-100</option>
+                                <option>100+</option>
+                                <option>Not sure</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="c-pain">What's your biggest challenge right now?</label>
+                            <textarea id="c-pain" rows="3" placeholder="E.g., I miss a lot of calls when I'm with patients, I don't have time to follow up with leads, I only have a few Google reviews..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-lg">Request My Free Demo</button>
+                    </form>
+                    <p class="form-response" id="contact-response"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo transition-link">Parvis <span class="logo-accent">AI</span></a>
+                    <p>AI-powered automation for local businesses in Glenview. Missed calls, follow-ups, and reviews -- handled.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Pages</h4>
+                    <a href="index.html" class="transition-link">Home</a>
+                    <a href="services.html" class="transition-link">How It Works</a>
+                    <a href="pricing.html" class="transition-link">Pricing</a>
+                    <a href="contact.html" class="transition-link">Contact</a>
+                    <a href="education.html" class="transition-link">Education</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Solutions</h4>
+                    <a href="services.html" class="transition-link">Missed Call Text-Back</a>
+                    <a href="services.html" class="transition-link">Lead Follow-Up</a>
+                    <a href="services.html" class="transition-link">Review Automation</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="mailto:hello@parvisai.com">hello@parvisai.com</a>
+                    <a href="tel:+18475550199">(847) 555-0199</a>
+                    <a href="contact.html" class="transition-link">Get a Demo</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Parvis AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
