@@ -6,14 +6,53 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;       // path or absolute URL — defaults to /og-default.png
+  ogType?: 'website' | 'article';
+  noindex?: boolean;      // true on pages we don't want in search results
   active?: 'home' | 'services' | 'pricing' | 'contact' | 'education' | null;
 }
 
 const {
   title,
   description = 'AI employees for local businesses. One system that answers calls, follows up on leads, and asks for reviews — automatically.',
+  ogImage = '/Logo/parvis-ai-full-light.png',
+  ogType = 'website',
+  noindex = false,
   active = null,
 } = Astro.props;
+
+// Canonical + absolute OG URL based on the configured site
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImageURL = new URL(ogImage, Astro.site).toString();
+
+// LocalBusiness JSON-LD — appears on every page so Google links the brand
+// across the site. Tweak phone, address, and services below as the business
+// information firms up.
+const businessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Parvis AI',
+  url: 'https://parvisai.com',
+  logo: 'https://parvisai.com/Logo/parvis-ai-full-light.png',
+  image: 'https://parvisai.com/Logo/parvis-ai-full-light.png',
+  description:
+    'AI employees for local service businesses — one system that answers every call, follows up with every lead, asks every happy customer for a review, and chases every invoice.',
+  telephone: '+1-847-555-0199',
+  email: 'hello@parvisai.com',
+  priceRange: '$$',
+  areaServed: 'United States',
+  serviceArea: { '@type': 'Country', name: 'United States' },
+  sameAs: [],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'AI automation plans',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Core', price: '397', priceCurrency: 'USD', priceSpecification: { '@type': 'UnitPriceSpecification', referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' } } },
+      { '@type': 'Offer', name: 'Growth', price: '797', priceCurrency: 'USD', priceSpecification: { '@type': 'UnitPriceSpecification', referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' } } },
+      { '@type': 'Offer', name: 'Elite', price: '1297', priceCurrency: 'USD', priceSpecification: { '@type': 'UnitPriceSpecification', referenceQuantity: { '@type': 'QuantitativeValue', value: 1, unitCode: 'MON' } } },
+    ],
+  },
+};
 ---
 
 <!doctype html>
@@ -21,9 +60,32 @@ const {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content={description} />
-  <title>{title}</title>
+  <meta name="generator" content={Astro.generator} />
 
+  <!-- Primary meta -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+  <!-- Open Graph (LinkedIn, iMessage, Facebook, Slack previews) -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:site_name" content="Parvis AI" />
+
+  <!-- Twitter / X cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
+
+  <!-- Favicon (uses logo as a fallback until a dedicated favicon ships) -->
+  <link rel="icon" type="image/svg+xml" href="/Logo/parvis-ai-icon-circle-light.svg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -40,9 +102,30 @@ const {
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
+
+  <!-- LocalBusiness structured data (JSON-LD) — helps Google show rich
+       results (logo, services, hours) and ties the brand together -->
+  <script type="application/ld+json" set:html={JSON.stringify(businessJsonLd)} />
+
+  <!-- ======= GOOGLE TAG MANAGER ======= -->
+  <!-- Paste your GTM container script here once you have GTM-XXXXXXX. Example:
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-XXXXXXX');
+  </script>
+  -->
+
+  <!-- ======= GOHIGHLEVEL TRACKING PIXEL ======= -->
+  <!-- Paste your GHL tracking script here. -->
 </head>
 
 <body class="page-transition">
+  <!-- ======= GTM noscript fallback ======= -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
   <Nav active={active} />
   <main>
     <slot />
@@ -55,8 +138,17 @@ const {
     import '../scripts/reveal.ts';
     import '../scripts/faq.ts';
     import '../scripts/stat-counter.ts';
-    import '../scripts/contact-form.ts';
     import '../scripts/mobile-menu.ts';
   </script>
+
+  <!-- ======= GOHIGHLEVEL CHAT WIDGET ======= -->
+  <!-- Paste your GHL chat widget loader here. Example:
+  <script
+    src="https://widgets.leadconnectorhq.com/loader.js"
+    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+    data-widget-id="YOUR-WIDGET-ID"
+    is:inline
+  ></script>
+  -->
 </body>
 </html>
