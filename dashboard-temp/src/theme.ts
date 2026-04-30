@@ -1,6 +1,6 @@
 export const T = {
-  bg: '#F8EFE6',
-  bgSoft: '#FBF4EB',
+  bg: '#FFFFFF',
+  bgSoft: '#FAFAFA',
   card: '#1E2230',
   cardDeep: '#0E1118',
   coral: '#F97356',
@@ -12,7 +12,7 @@ export const T = {
   textBody: '#5E5548',
   textDark: '#1E2230',
   border: '#2B3040',
-  rule: '#E6D9C6',
+  rule: 'rgba(10,12,20,0.08)',
   ok: '#4ADE80',
   warn: '#E8A53A',
 } as const;

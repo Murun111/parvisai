@@ -10,7 +10,7 @@ import { FONT, T } from './theme';
 
 export default function App() {
   return (
-    <div style={{ fontFamily: FONT, color: T.textDark, background: T.bg, minHeight: '100vh' }}>
+    <div style={{ fontFamily: FONT, color: T.textDark, background: T.bg }}>
       <Nav />
       <Hero />
       <Divider />

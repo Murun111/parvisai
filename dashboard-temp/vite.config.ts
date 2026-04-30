@@ -12,5 +12,12 @@ export default defineConfig({
   build: {
     outDir: '../education-dashboard',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/quantum.js',
+        chunkFileNames: 'assets/quantum-[name].js',
+        assetFileNames: 'assets/quantum-[name][extname]',
+      },
+    },
   },
 });

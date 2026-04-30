@@ -12,8 +12,9 @@ const ITEMS: { id: string; number: string; label: string }[] = [
 ];
 
 export function Nav() {
-  const [active, setActive] = useState<string>('hero');
+  const [active, setActive] = useState<string | null>('hero');
   const [tooNarrow, setTooNarrow] = useState(false);
+  const [rootVisible, setRootVisible] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,6 +32,18 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  // Hide nav when the dashboard root scrolls out of view (into parvis-ai header/footer)
+  useEffect(() => {
+    const root = document.getElementById('quantum-root');
+    if (!root) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { setRootVisible(entry.isIntersecting); },
+      { threshold: 0 },
+    );
+    obs.observe(root);
+    return () => obs.disconnect();
+  }, []);
+
   useEffect(() => {
     // Show only when there's enough left gutter for the nav not to overlap centred content.
     const check = () => setTooNarrow(window.innerWidth < 1440);
@@ -44,7 +57,7 @@ export function Nav() {
   };
 
   // Hide on reference (the poster fills the width) and on narrow viewports.
-  const hidden = active === 'reference' || tooNarrow;
+  const hidden = !rootVisible || active === null || active === 'reference' || tooNarrow;
 
   return (
     <nav
