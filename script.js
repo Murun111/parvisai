@@ -47,7 +47,7 @@ document.querySelectorAll("a.transition-link").forEach(function (link) {
         if (href === window.location.pathname.split("/").pop()) return;
         e.preventDefault();
         document.body.classList.add("page-leaving");
-        setTimeout(function () { window.location.href = href; }, 400);
+        setTimeout(function () { window.location.href = href; }, 120);
     });
 });
 
