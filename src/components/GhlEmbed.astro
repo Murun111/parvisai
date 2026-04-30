@@ -1,0 +1,48 @@
+---
+interface Props {
+  type: 'form' | 'booking';
+  src: string;          // full embed URL from GHL
+  id?: string;          // GHL widget id (the path segment after /widget/form|booking/)
+  height?: string;      // initial height; GHL form_embed.js auto-resizes after mount
+  title?: string;       // a11y title
+}
+
+const {
+  type,
+  src,
+  id,
+  height = type === 'booking' ? '780px' : '640px',
+  title = type === 'booking' ? 'Book a demo' : 'Contact form',
+} = Astro.props;
+
+// Derive a stable iframe id GHL's loader uses for resize messaging.
+const iframeId = id ?? src.split('/').pop();
+---
+
+<div class="ghl-embed">
+  <iframe
+    src={src}
+    id={iframeId}
+    title={title}
+    style={`width: 100%; height: ${height}; border: 0; overflow: hidden;`}
+    scrolling="no"
+    loading="lazy"
+  ></iframe>
+</div>
+
+<!-- Loaded once per page; safe if duplicated, GHL guards against re-init. -->
+<script src="https://api.leadconnectorhq.com/js/form_embed.js" type="text/javascript" is:inline></script>
+
+<style>
+  .ghl-embed {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--bg-paper);
+  }
+  .ghl-embed iframe {
+    display: block;
+    width: 100%;
+    background: transparent;
+  }
+</style>

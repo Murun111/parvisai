@@ -4,6 +4,7 @@ import PageHeader from '../components/PageHeader.astro';
 import GlassCard from '../components/GlassCard.astro';
 import Eyebrow from '../components/Eyebrow.astro';
 import Icon from '../components/Icon.astro';
+import GhlEmbed from '../components/GhlEmbed.astro';
 ---
 
 <Base title="Get a Demo — Parvis AI" active="contact">
@@ -75,71 +76,17 @@ import Icon from '../components/Icon.astro';
           </GlassCard>
         </aside>
 
-        <!-- RIGHT: form -->
+        <!-- RIGHT: GoHighLevel form embed -->
         <div class="contact-form-wrap" data-reveal>
-          <GlassCard size="lg" padding="44px clamp(28px, 4vw, 44px)">
-            <form class="contact-form" id="contact-form">
-              <h3 class="form-title">Request Your Free Demo</h3>
-              <p class="form-subtitle">Tell us about your business and we'll show you exactly how Parvis AI will work for you.</p>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="c-name">Your Name *</label>
-                  <input type="text" id="c-name" placeholder="Full name" required />
-                </div>
-                <div class="form-group">
-                  <label for="c-phone">Phone Number *</label>
-                  <input type="tel" id="c-phone" placeholder="(555) 000-0000" required />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="c-email">Email *</label>
-                  <input type="email" id="c-email" placeholder="you@email.com" required />
-                </div>
-                <div class="form-group">
-                  <label for="c-business">Business Name</label>
-                  <input type="text" id="c-business" placeholder="Your business" />
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="c-type">What type of business?</label>
-                <select id="c-type">
-                  <option value="">Select your industry...</option>
-                  <option>Dental / Medical</option>
-                  <option>Salon / Spa / Barbershop</option>
-                  <option>HVAC / Plumbing / Electrical</option>
-                  <option>Auto Repair / Detailing</option>
-                  <option>Law Firm</option>
-                  <option>Real Estate</option>
-                  <option>Fitness / Gym</option>
-                  <option>Restaurant / Food Service</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="c-calls">How many calls does your business get per week (roughly)?</label>
-                <select id="c-calls">
-                  <option value="">Select...</option>
-                  <option>Under 20</option>
-                  <option>20-50</option>
-                  <option>50-100</option>
-                  <option>100+</option>
-                  <option>Not sure</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="c-pain">What's your biggest challenge right now?</label>
-                <textarea id="c-pain" rows="3" placeholder="E.g., I miss a lot of calls when I'm with patients, I don't have time to follow up with leads, I only have a few Google reviews..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-full btn-lg">Request My Free Demo</button>
-            </form>
-            <p class="form-response" id="contact-response"></p>
+          <GlassCard size="lg" padding="clamp(20px, 3vw, 32px)">
+            <h3 class="form-title">Request Your Free Demo</h3>
+            <p class="form-subtitle">Tell us about your business and we'll show you exactly how Parvis AI will work for you.</p>
+            <GhlEmbed
+              type="form"
+              src="https://api.leadconnectorhq.com/widget/form/okQR2mkzaikyoqHT8ByE"
+              id="okQR2mkzaikyoqHT8ByE"
+              title="Request your free Parvis AI demo"
+            />
           </GlassCard>
         </div>
 
